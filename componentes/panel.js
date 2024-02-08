@@ -56,19 +56,15 @@ export const panel = {
 
 
   borrarPieza: () => {
-    // Verificar si hay una nueva pieza
     if (panel.nuevaPieza) {
-      // Recorrer la matriz de la nueva pieza
       for (let i = 0; i < panel.nuevaPieza.altura; i++) {
         for (let x = 0; x < panel.nuevaPieza.longitud; x++) {
           const elemento = panel.nuevaPieza.matriz[i][x];
-          // Si el elemento es 1 (parte de la pieza), establecerlo como 0 en el panel
           if (elemento) {
             panel.matriz[i + panel.nuevaPieza.y][x + panel.nuevaPieza.x] = 0;
           }
         }
       }
-      // Volver a pintar el panel después de borrar la pieza
       panel.pintaPanel();
     }
   },
@@ -97,7 +93,7 @@ export const panel = {
     }
     
     const pieza = new ModeloPieza(aleatorioModelo, aleatorioX, 1, 0);
-    panel.nuevaPieza = pieza; // Assignem la nova peça a la propietat nuevaPieza
+    panel.nuevaPieza = pieza; 
     return pieza;
    
   },
@@ -162,7 +158,6 @@ export const panel = {
 
 
   iniciarMovimiento: () => {
-    // Establecer un intervalo que llame a panel.bajar() cada segundo
     panel.movimientoInterval = setInterval(() => {
       panel.bajar();
     }, 1000);
