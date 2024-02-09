@@ -167,6 +167,8 @@ export const panel = {
 
   controlTeclas: () => {
     document.addEventListener("keydown", (event) => {
+      // Prevenir el comportamiento predeterminado
+      event.preventDefault();
       switch (event.key) {
         case "ArrowLeft":
           panel.moverIzq();
